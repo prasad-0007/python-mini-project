@@ -928,11 +928,11 @@ body {
 
 .modal-content {
     background: var(--surface-color);
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 20px;
-    max-width: 900px;
-    width: 90%;
-    max-height: 90vh;
+    max-width: 1000px;
+    width: 95%;
+    max-height: 95vh;
     overflow-y: auto;
     position: relative;
     animation: slideUp 0.3s ease;
@@ -956,6 +956,84 @@ body {
 }
 
 .modal-close:hover { transform: scale(1.1) rotate(90deg); }
+
+/* ── Modal Layout Fix ────────────────────────────────────────────
+   Use flexbox so the modal distributes space properly and the
+   scrollbar only appears when content truly can't fit.
+───────────────────────────────────────────────────────────────── */
+
+/* Make modal-content a flex column so it manages space cleanly */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* modalBody takes all remaining space and handles its own scroll */
+#modalBody {
+    flex: 1;
+    overflow: hidden;
+    padding-right: 0;
+}
+
+/* ── Premium Thin Scrollbar ──────────────────────────────────────
+   When scrolling IS needed (e.g. canvas games), it looks minimal
+   and intentional instead of an ugly browser default scrollbar.
+───────────────────────────────────────────────────────────────── */
+#modalBody::-webkit-scrollbar {
+    width: 4px;
+}
+
+#modalBody::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#modalBody::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+    opacity: 0.7;
+}
+
+#modalBody::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-hover, var(--primary-color));
+    opacity: 1;
+}
+
+/* Firefox */
+#modalBody {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
+}
+
+/* ── Content Compaction ──────────────────────────────────────────
+   Reduce excessive padding/margins inside game content so simpler
+   games (Rock Paper Scissors, Coin Flip, etc.) fit without scroll.
+───────────────────────────────────────────────────────────────── */
+#modalBody h2 {
+    font-size: 1.2rem !important;
+    margin: 0 0 0.5rem 0 !important;
+}
+
+#modalBody [class*="container"],
+#modalBody [class*="wrapper"],
+#modalBody .project-content {
+    padding: 0.5rem 0.75rem !important;
+}
+
+#modalBody [class*="container"] > *,
+#modalBody .project-content > * {
+    margin-bottom: 0.5rem !important;
+}
+
+#modalBody [class*="score-board"],
+#modalBody [class*="stats-grid"] {
+    gap: 0.75rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+#modalBody [class*="btn-"]:not(.modal-close) {
+    padding: 0.6rem 1.2rem !important;
+}
+
 
 /* ═══════════════════════════════════════
    FOOTER (full — not the fixed bar)

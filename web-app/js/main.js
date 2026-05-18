@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var selectedSuggestionIndex = -1;
     var removeTrap = null;
     var lastFocusedElement = null;
+    var modalResizeObserver = null;
     var recentSearches = JSON.parse(localStorage.getItem('recentSearches') || '[]');
 
     // ── Theme Toggle ────────────────────────────────────────────────
@@ -564,6 +565,49 @@ document.addEventListener('DOMContentLoaded', function () {
      * card clicks. It NEVER touches Pyodide and NEVER waits for it.
      * The modal opens instantly regardless of Pyodide load state.
      */
+
+    /*
+     * AUTO-SCALE: After every game loads, measure if the content overflows
+     * the modal body. If it does, apply CSS zoom to shrink the content
+     * proportionally until it fits perfectly — guaranteeing zero scrollbars
+     * on any screen size without changing any game logic.
+     */
+    function fitModalContent() {
+        if (!modalBody) return;
+        var content = modalBody.firstElementChild;
+        if (!content) return;
+
+        // Reset scroll position to prevent browser focus-scrolling cutoff
+        modalBody.scrollTop = 0;
+
+        // Reset any previous scaling and layout compensations
+        content.style.zoom = '';
+        content.style.transformOrigin = '';
+        content.style.transform = '';
+        content.style.marginBottom = '';
+
+        var bodyH = modalBody.clientHeight;
+        var bodyW = modalBody.clientWidth;
+        var contentH = content.scrollHeight;
+        var contentW = content.scrollWidth;
+
+        if (bodyH > 0 && bodyW > 0 && contentH > 0 && contentW > 0) {
+            var zoomH = bodyH / contentH;
+            var zoomW = bodyW / contentW;
+            
+            // Choose the smaller zoom so it fits inside both width and height boundaries
+            var zoom = Math.min(zoomH, zoomW);
+
+            if (zoom < 1) {
+                // Clamp: allow scaling down to 30% for extremely large content
+                zoom = Math.max(zoom, 0.3);
+                content.style.transformOrigin = 'top center';
+                content.style.transform = 'scale(' + zoom.toFixed(4) + ')';
+                // Compensate layout space so scaled content doesn't leave gap at bottom
+                content.style.marginBottom = '-' + Math.round(contentH * (1 - zoom)) + 'px';
+            }
+        }
+    }
     function openProjectSafe(name, trigger) {
         if (!modal || !modalBody) return;
 
@@ -585,14 +629,32 @@ document.addEventListener('DOMContentLoaded', function () {
                 modalBody.innerHTML = '<div style="padding:1rem">Project content unavailable.</div>';
             }
             if (typeof initializeProject === 'function') initializeProject(name);
+            // Setup ResizeObserver to scale dynamically whenever the content size changes
+            if (typeof ResizeObserver !== 'undefined' && modalBody) {
+                if (modalResizeObserver) {
+                    modalResizeObserver.disconnect();
+                }
+                modalResizeObserver = new ResizeObserver(function () {
+                    fitModalContent();
+                });
+                var content = modalBody.firstElementChild;
+                if (content) {
+                    modalResizeObserver.observe(content);
+                }
+            }
+            // First pass: scale after initial render
+            setTimeout(fitModalContent, 150);
+            // Second pass: safety net for games that build DOM dynamically (e.g. Hangman keyboard)
+            setTimeout(fitModalContent, 500);
         });
 
         removeTrap = trapFocus(modal);
         var focusables = getFocusableElements(modalBody);
         var firstFocusable = focusables[0] || modalClose;
         if (firstFocusable && typeof firstFocusable.focus === 'function') {
-            firstFocusable.focus();
+            firstFocusable.focus({ preventScroll: true });
         }
+        if (modalBody) modalBody.scrollTop = 0;
     }
 
     function closeProjectSafe() {
@@ -602,6 +664,10 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.style.overflow = '';
         setMainInert(false);
         if (removeTrap) { removeTrap(); removeTrap = null; }
+        if (modalResizeObserver) {
+            modalResizeObserver.disconnect();
+            modalResizeObserver = null;
+        }
         if (modalBody) modalBody.innerHTML = '';
         if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
             lastFocusedElement.focus();

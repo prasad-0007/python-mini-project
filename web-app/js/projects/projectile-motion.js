@@ -24,7 +24,7 @@ function getProjectileMotionHTML() {
                     <div class="stat-chip">📏 Range: <span id="projRange">0.00 m</span></div>
                 </div>
 
-                <canvas id="projectileCanvas" width="760" height="380"></canvas>
+                <canvas id="projectileCanvas" width="600" height="240"></canvas>
                 <p class="projectile-result" id="projectileResult">Set values and launch to calculate TOF, Hmax, and Range.</p>
             </div>
         </div>
@@ -32,7 +32,7 @@ function getProjectileMotionHTML() {
         <style>
             .projectile-container {
                 text-align: center;
-                padding: 1.5rem;
+                padding: 0.5rem 1rem;
             }
 
             .projectile-controls {

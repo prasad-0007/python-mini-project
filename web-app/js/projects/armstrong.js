@@ -29,7 +29,7 @@ function getArmstrongHTML() {
         
         <style>
             .armstrong-container {
-                padding: 2rem;
+                padding: 0.5rem 1rem;
                 max-width: 700px;
                 margin: 0 auto;
             }

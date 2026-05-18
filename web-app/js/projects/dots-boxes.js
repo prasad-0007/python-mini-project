@@ -68,7 +68,7 @@ function getDotsBoxesHTML() {
     <style>
         /* ── Layout ── */
         .dots-game-container {
-            padding: 2rem;
+            padding: 0.5rem 1rem;
             text-align: center;
         }
 
@@ -78,19 +78,19 @@ function getDotsBoxesHTML() {
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 2rem;
+            margin-bottom: 0.75rem;
         }
 
         .dots-controls button,
         .dots-controls select {
-            padding: 0.8rem 1.2rem;
+            padding: 0.4rem 0.8rem;
             border: 2px solid var(--border-color);
             border-radius: 12px;
             background: var(--surface-color);
             color: var(--text-color);
             cursor: pointer;
             transition: var(--transition);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
         }
 
         .dots-controls button:hover {
@@ -102,25 +102,25 @@ function getDotsBoxesHTML() {
         .dots-scoreboard {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
             flex-wrap: wrap;
         }
 
         .score-card {
             background: var(--surface-color);
-            padding: 1rem 2rem;
+            padding: 0.5rem 1rem;
             border-radius: 18px;
             border: 2px solid var(--border-color);
-            min-width: 220px;
+            min-width: 160px;
         }
 
         .player-header {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.8rem;
-            margin-bottom: 1rem;
+            gap: 0.5rem;
+            margin-bottom: 0.25rem;
         }
 
         .player-ball {
@@ -160,8 +160,8 @@ function getDotsBoxesHTML() {
 
         /* ── Turn indicator ── */
         .turn-indicator {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
             font-weight: bold;
             color: var(--primary-color);
         }
@@ -189,8 +189,8 @@ function getDotsBoxesHTML() {
 
         /* Horizontal lines */
         .line-h {
-            width: 50px;
-            height: 10px;
+            width: 36px;
+            height: 8px;
             background: #cbd5e1;
             border-radius: 10px;
             cursor: pointer;
@@ -199,8 +199,8 @@ function getDotsBoxesHTML() {
 
         /* Vertical lines */
         .line-v {
-            width: 10px;
-            height: 50px;
+            width: 8px;
+            height: 36px;
             background: #cbd5e1;
             border-radius: 10px;
             cursor: pointer;
@@ -215,13 +215,13 @@ function getDotsBoxesHTML() {
 
         /* Claimed boxes */
         .box {
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
+            font-size: 1rem;
             font-weight: bold;
             transition: 0.3s;
         }

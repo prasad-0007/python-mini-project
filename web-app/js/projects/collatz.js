@@ -20,22 +20,22 @@ function getCollatzHTML() {
                 
                 <div class="sequence-display" id="sequenceDisplay"></div>
                 
-                <canvas id="collatzGraph" width="800" height="300"></canvas>
+                <canvas id="collatzGraph" width="600" height="150"></canvas>
             </div>
         </div>
         
         <style>
             .collatz-container {
-                padding: 2rem;
+                padding: 0.5rem 1rem;
                 max-width: 900px;
                 margin: 0 auto;
             }
             
             .rules {
                 background: var(--surface-color);
-                padding: 1.5rem;
+                padding: 0.75rem 1rem;
                 border-radius: 15px;
-                margin-bottom: 2rem;
+                margin-bottom: 0.75rem;
                 border: 2px solid var(--border-color);
             }
             
@@ -56,7 +56,7 @@ function getCollatzHTML() {
                 display: flex;
                 gap: 1rem;
                 justify-content: center;
-                margin-bottom: 2rem;
+                margin-bottom: 0.75rem;
                 flex-wrap: wrap;
             }
             
@@ -74,15 +74,15 @@ function getCollatzHTML() {
             
             .collatz-stats {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 1rem;
-                margin-bottom: 2rem;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 0.5rem;
+                margin-bottom: 0.75rem;
             }
             
             .stat-box {
                 background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
                 color: white;
-                padding: 1.5rem;
+                padding: 0.6rem;
                 border-radius: 15px;
                 text-align: center;
             }
@@ -94,7 +94,7 @@ function getCollatzHTML() {
             }
             
             .stat-value {
-                font-size: 2rem;
+                font-size: 1.3rem;
                 font-weight: bold;
             }
             
@@ -102,9 +102,9 @@ function getCollatzHTML() {
                 background: var(--surface-color);
                 border: 2px solid var(--border-color);
                 border-radius: 15px;
-                padding: 1.5rem;
-                margin-bottom: 2rem;
-                max-height: 300px;
+                padding: 0.75rem;
+                margin-bottom: 0.75rem;
+                max-height: 120px;
                 overflow-y: auto;
             }
             
@@ -230,7 +230,7 @@ function initCollatz() {
         const xStep = graphWidth / (sequence.length - 1);
         const yScale = graphHeight / maxValue;
         
-        ctx.strokeStyle = 'var(--text-secondary)';
+        ctx.strokeStyle = '#64748b';
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.moveTo(padding, padding);

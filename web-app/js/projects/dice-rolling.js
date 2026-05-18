@@ -41,14 +41,14 @@ function getDiceRollingHTML() {
         <style>
             .dice-container {
                 text-align: center;
-                padding: 3rem 2rem;
+                padding: 0.5rem 1rem;
             }
             
             .dice-display {
                 display: flex;
-                gap: 2rem;
+                gap: 1.5rem;
                 justify-content: center;
-                margin-bottom: 2rem;
+                margin-bottom: 0.75rem;
                 flex-wrap: wrap;
             }
 
@@ -167,8 +167,8 @@ function getDiceRollingHTML() {
             }
             
             .dice-total {
-                font-size: 2rem;
-                margin: 2rem 0;
+                font-size: 1.5rem;
+                margin: 0.75rem 0;
                 font-weight: bold;
             }
             

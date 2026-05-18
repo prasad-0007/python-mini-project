@@ -32,7 +32,7 @@ function getCoinFlipHTML() {
         <style>
             .coin-container {
                 text-align: center;
-                padding: 3rem 2rem;
+                padding: 0.5rem 1rem;
             }
 
             .coin-scene {

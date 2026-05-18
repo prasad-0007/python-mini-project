@@ -17,7 +17,7 @@ function getPascalTriangleHTML() {
         
         <style>
             .pascal-container {
-                padding: 2rem;
+                padding: 0.5rem 1rem;
                 text-align: center;
             }
             

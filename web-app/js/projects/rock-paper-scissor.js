@@ -78,7 +78,7 @@ function getRockPaperScissorHTML() {
         <style>
             .game-container {
                 text-align: center;
-                padding: 2rem;
+                padding: 0.5rem 1rem;
             }
             
             .score-board {

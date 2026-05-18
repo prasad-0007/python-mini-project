@@ -5,7 +5,7 @@ function getsnakeGameHTML() {
             <div class="snake-container">
                 <div class="game-area">
                     <div id="canvas-wrapper">
-                        <canvas id="snakeCanvas" width="600" height="400"></canvas>
+                        <canvas id="snakeCanvas" width="400" height="280"></canvas>
                         
                         <div id="game-over-overlay" class="hidden">
                             <h1>GAME OVER!!</h1>
@@ -37,14 +37,14 @@ function getsnakeGameHTML() {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                padding: 20px;
+                padding: 0.5rem;
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             }
             .game-area {
                 display: flex;
                 align-items: flex-start;
-                gap: 20px;
-                margin-bottom: 25px;
+                gap: 12px;
+                margin-bottom: 10px;
                 width: 100%;
                 max-width: 850px;
                 justify-content: center;

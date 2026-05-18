@@ -14,7 +14,7 @@ function getHangmanHTML() {
                     </div>
                 </div>
                 
-                <canvas id="hangmanCanvas" width="300" height="350"></canvas>
+                <canvas id="hangmanCanvas" width="240" height="240"></canvas>
                 
                 <div class="word-display" id="wordDisplay"></div>
                 
@@ -33,7 +33,7 @@ function getHangmanHTML() {
         
         <style>
             .hangman-container {
-                padding: 2rem;
+                padding: 0.5rem 1rem;
                 max-width: 800px;
                 margin: 0 auto;
                 text-align: center;
@@ -41,14 +41,14 @@ function getHangmanHTML() {
             
             .game-stats {
                 display: flex;
-                gap: 2rem;
+                gap: 1rem;
                 justify-content: center;
-                margin-bottom: 2rem;
+                margin-bottom: 0.5rem;
             }
             
             .stat {
                 background: var(--surface-color);
-                padding: 1rem 2rem;
+                padding: 0.4rem 1rem;
                 border-radius: 10px;
                 border: 2px solid var(--border-color);
             }
@@ -62,7 +62,7 @@ function getHangmanHTML() {
             
             .stat-value {
                 display: block;
-                font-size: 2rem;
+                font-size: 1.3rem;
                 font-weight: bold;
                 color: var(--primary-color);
             }
@@ -71,18 +71,18 @@ function getHangmanHTML() {
                 background: var(--surface-color);
                 border: 2px solid var(--border-color);
                 border-radius: 15px;
-                margin: 2rem auto;
+                margin: 0.5rem auto;
                 display: block;
                 box-shadow: var(--shadow);
             }
             
             .word-display {
-                font-size: 3rem;
-                letter-spacing: 1rem;
-                margin: 2rem 0;
+                font-size: 1.8rem;
+                letter-spacing: 0.5rem;
+                margin: 0.5rem 0;
                 font-family: 'Courier New', monospace;
                 font-weight: bold;
-                min-height: 4rem;
+                min-height: 2.5rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -91,16 +91,16 @@ function getHangmanHTML() {
             
             .letter-box {
                 display: inline-block;
-                width: 50px;
-                height: 60px;
-                line-height: 60px;
-                margin: 0.25rem;
+                width: 35px;
+                height: 42px;
+                line-height: 42px;
+                margin: 0.1rem;
                 border-bottom: 3px solid var(--primary-color);
                 color: var(--text-color);
             }
             
             .guessed-letters {
-                margin: 2rem 0;
+                margin: 0.25rem 0;
             }
             
             .guessed-letters h4 {
@@ -117,22 +117,22 @@ function getHangmanHTML() {
             .keyboard {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 0.5rem;
+                gap: 0.3rem;
                 justify-content: center;
-                margin: 2rem 0;
+                margin: 0.5rem 0;
                 max-width: 600px;
                 margin-left: auto;
                 margin-right: auto;
             }
             
             .key-btn {
-                width: 45px;
-                height: 45px;
+                width: 36px;
+                height: 36px;
                 background: var(--primary-color);
                 color: white;
                 border: none;
                 border-radius: 8px;
-                font-size: 1.2rem;
+                font-size: 0.9rem;
                 font-weight: bold;
                 cursor: pointer;
                 transition: var(--transition);
@@ -158,10 +158,10 @@ function getHangmanHTML() {
             }
             
             .game-message {
-                font-size: 1.5rem;
+                font-size: 1.1rem;
                 font-weight: bold;
-                min-height: 3rem;
-                margin: 2rem 0;
+                min-height: 1.5rem;
+                margin: 0.25rem 0;
             }
             
             .game-message.win {

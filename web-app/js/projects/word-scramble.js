@@ -59,7 +59,7 @@ function getWordScrambleHTML() {
 
         <style>
             .scramble-container {
-                padding: 2rem;
+                padding: 0.5rem 1rem;
                 max-width: 800px;
                 margin: 0 auto;
                 text-align: center;

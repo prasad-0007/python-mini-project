@@ -17,13 +17,13 @@ function getTowerOfHanoiHTML() {
                     <div>Optimal: <span id="optimalMoves">7</span></div>
                 </div>
                 
-                <canvas id="hanoiCanvas" width="800" height="400"></canvas>
+                <canvas id="hanoiCanvas" width="640" height="260"></canvas>
             </div>
         </div>
         
         <style>
             .hanoi-container {
-                padding: 2rem;
+                padding: 0.5rem 1rem;
                 text-align: center;
             }
             
@@ -75,10 +75,10 @@ function getTowerOfHanoiHTML() {
             
             .stats {
                 display: flex;
-                gap: 2rem;
+                gap: 1.5rem;
                 justify-content: center;
-                margin-bottom: 2rem;
-                font-size: 1.2rem;
+                margin-bottom: 0.75rem;
+                font-size: 1rem;
                 font-weight: bold;
             }
             

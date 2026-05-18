@@ -13,13 +13,13 @@ function getFibonacciHTML() {
                 
                 <div class="fib-display" id="fibDisplay"></div>
                 
-                <canvas id="fibSpiral" width="600" height="600"></canvas>
+                <canvas id="fibSpiral" width="380" height="380"></canvas>
             </div>
         </div>
         
         <style>
             .fibonacci-container {
-                padding: 2rem;
+                padding: 0.5rem 1rem;
                 text-align: center;
             }
             
@@ -28,7 +28,7 @@ function getFibonacciHTML() {
                 gap: 0.5rem;
                 justify-content: center;
                 flex-wrap: wrap;
-                margin: 2rem 0;
+                margin: 0.75rem 0;
             }
             
             .fib-number {
@@ -42,7 +42,7 @@ function getFibonacciHTML() {
             }
             
             #fibSpiral {
-                margin-top: 2rem;
+                margin-top: 0.5rem;
                 border-radius: 15px;
                 box-shadow: var(--shadow);
                 max-width: 100%;

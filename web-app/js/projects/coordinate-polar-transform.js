@@ -26,7 +26,7 @@ function getCoordinatePolarTransformHTML() {
                     <div class="stat-chip">🔁 theta (rad): <span id="polarThetaRad">0</span></div>
                 </div>
 
-                <canvas id="coordPolarCanvas" width="760" height="360"></canvas>
+                <canvas id="coordPolarCanvas" width="600" height="240"></canvas>
                 <p class="coord-result" id="coordPolarResult">Click convert to visualize the point and its polar angle.</p>
             </div>
         </div>
@@ -34,7 +34,7 @@ function getCoordinatePolarTransformHTML() {
         <style>
             .coord-polar-container {
                 text-align: center;
-                padding: 1.5rem;
+                padding: 0.5rem 1rem;
                 max-width: 780px;
                 margin: 0 auto;
             }
